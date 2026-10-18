@@ -42,11 +42,11 @@ license:       creative commons CC-BY-NC-SA
 
    <!-- Color Scheme -->
    <subset name="color-scheme" displayName="Color Scheme">
+      <include name="dracula" displayName="Dracula" />
       <include name="art-book-next" displayName="Art Book Next" />
       <include name="art-book" displayName="Art Book" />
       <include name="knulli" displayName="Knulli" />
       <include name="bruce" displayName="Bruce" />
-      <include name="dracula" displayName="Dracula" />
       <include name="tokyo" displayName="Tokyo" />
       <include name="steam-os-nord" displayName="OS Nord" />
       <include name="steam-os" displayName="Steam OS" />
@@ -72,8 +72,9 @@ license:       creative commons CC-BY-NC-SA
 
    <!-- System Carousel Artwork -->
    <subset name="system-carousel-artwork" displayName="System View: Artwork">
-      <include name="default" displayName="Default" />
       <include name="noir" displayName="Noir" />
+      <include name="default" displayName="Default" />
+      <include name="outline" displayName="Outline" />
       <include name="custom" displayName="Custom" />
       <include name="fullscreen-custom" displayName="Custom (Fullscreen)" />
    </subset>
@@ -124,9 +125,9 @@ license:       creative commons CC-BY-NC-SA
 
    <!-- Gamelist Font Size -->
    <subset name="fonts" displayName="Gamelist View: Font Size">
+      <include name="small" displayName="Small" />
       <include name="default" displayName="Default" />
       <include name="large" displayName="Large" />
-      <include name="small" displayName="Small" />
    </subset>
 
    <!-- Gamelist :: Grid ROM Titles -->
@@ -143,15 +144,15 @@ license:       creative commons CC-BY-NC-SA
 
    <!-- Carousel Game Count -->
    <subset name="carousel-gamecount" displayName="Carousel: Game Count">
-      <include name="off" displayName="Off" />
       <include name="on" displayName="On" />
+      <include name="off" displayName="Off" />
    </subset>
 
    <!-- Carousel Game Count Position -->
    <subset name="carousel-gc-pos" displayName="Carousel: Game Count Pos" ifSubset="carousel-gamecount:on">
       <!-- ifSubset="carousel-gamecount:on" -->
-      <include name="gc-tl" displayName="Top Left" />
       <include name="gc-cntr" displayName="Centered" />
+      <include name="gc-tl" displayName="Top Left" />
       <include name="gc-br" displayName="Bottom Right" />
    </subset>
 
@@ -164,14 +165,14 @@ license:       creative commons CC-BY-NC-SA
 
    <!-- Overlay Effects switch -->
    <subset name="overlay-effects" displayName="Overlay Effects">
-      <include name="off" displayName="Off"/>
       <include name="on" displayName="On"/>
+      <include name="off" displayName="Off"/>
    </subset>
 
    <!-- Dirt overlay -->
    <subset name="dirt-overlay" displayName="Dirt Overlay" ifSubset="overlay-effects:on">
-      <include name="off" displayName="Off"/>
       <include name="on" displayName="On"/>
+      <include name="off" displayName="Off"/>
    </subset>
 
    <!-- lcd overlay -->
@@ -301,11 +302,12 @@ license:       creative commons CC-BY-NC-SA
       <text name="clock">
          <origin>1 0</origin>
          <color>${statusBarIconColor}</color>
-         <size>0.09 0.075</size>
+         <size>0.15 0.085</size>
          <fontPath>${clockFont}</fontPath>
-         <fontSize>0.04</fontSize>
-         <!-- <alignment>right</alignment> -->
-         <pos>0.8125 0.0125</pos>
+         <fontSize>0.045</fontSize>
+		 <fontSize ifSubset="aspect-ratio:4-3" tinyScreen="true">0.035</fontSize>
+         <alignment>right</alignment>
+         <pos>0.8100 0.0125</pos>
       </text>
 
       <batteryIndicator name="batteryIndicator">
@@ -320,6 +322,8 @@ license:       creative commons CC-BY-NC-SA
          <networkIcon>./_inc/images/wifi-vertical.svg</networkIcon>
          <alignment>right</alignment>
          <size>0.06</size>
+         <pos>0.92 0.0125</pos>
+		 <pos ifSubset="aspect-ratio:4-3" tinyScreen="true">0.912 0.0125</pos>
       </batteryIndicator>
    </view>
 
@@ -376,6 +380,8 @@ license:       creative commons CC-BY-NC-SA
          <path ifSubset="system-carousel-artwork:default">./_inc/systems/artwork-default/${system.theme}.png</path>
          <path ifSubset="system-carousel-artwork:noir">./_inc/systems/artwork-noir/_default.png</path>
          <path ifSubset="system-carousel-artwork:noir">./_inc/systems/artwork-noir/${system.theme}.png</path>
+         <path ifSubset="system-carousel-artwork:outline">./_inc/systems/artwork-outline/_default.png</path>
+         <path ifSubset="system-carousel-artwork:outline">./_inc/systems/artwork-outline/${system.theme}.png</path>
          <path ifSubset="system-carousel-artwork:custom">${themeCustomizationsPath}artwork/_default.jpg</path>
          <path ifSubset="system-carousel-artwork:custom">${themeCustomizationsPath}artwork/_default.png</path>
          <path ifSubset="system-carousel-artwork:custom">${themeCustomizationsPath}artwork/${system.theme}.jpg</path>
@@ -434,6 +440,8 @@ license:       creative commons CC-BY-NC-SA
          <path ifSubset="system-carousel-artwork:default">./_inc/systems/artwork-default/${system.theme}.png</path>
          <path ifSubset="system-carousel-artwork:noir">./_inc/systems/artwork-noir/_default.png</path>
          <path ifSubset="system-carousel-artwork:noir">./_inc/systems/artwork-noir/${system.theme}.png</path>
+         <path ifSubset="system-carousel-artwork:outline">./_inc/systems/artwork-outline/_default.png</path>
+         <path ifSubset="system-carousel-artwork:outline">./_inc/systems/artwork-outline/${system.theme}.png</path>
          <path ifSubset="system-carousel-artwork:custom">${themeCustomizationsPath}artwork/_default.png</path>
          <path ifSubset="system-carousel-artwork:custom">${themeCustomizationsPath}artwork/${system.theme}.png</path>
          <color>${systemArtColor}</color>
